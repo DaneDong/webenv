@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>在线聊天系统</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <span id="Hello_text"></span>
+        <button onclick="quit()">注销</button>
+        <script type="text/javascript">
+            window.onload=function(){
+                var Nickname=localStorage.getItem("Nickname");
+                if (Nickname) {
+                    //昵称存在,显示昵称
+                    var element=document.getElementById("Hello_text");
+                    element.innerText=Nickname+",欢迎使用在线聊天系统"
+                }
+                else {
+                    //昵称不存在,跳转到登陆页面
+                    window.location.href='./index.html';
+                }
+            }
+            
+            //注销函数
+            function quit() {
+                localStorage.removeItem('Nickname');
+                window.location.href='./index.html';
+            }
+        </script>
+    </body>
+</html>

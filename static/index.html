@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>在线聊天系统 | 登陆</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form class="login-form" action="./main.html" method="POST" onsubmit="return login()">
+            <h1>在线聊天系统</h1>
+            <input type="text" name="Nickname" required="True" />
+            <input type="submit" value="登陆">
+
+        </form>
+        <style>
+        </style>
+        <script type="text/javascript">
+            function login() {
+                var element=document.getElementsByName("Nickname")[0];
+                var Nickname=element.value;
+                localStorage.setItem('Nickname',Nickname);
+                return true;
+            }
+
+            // 加载页面时判断是否设置了昵称
+            window.onload=function(){
+                var Nickname=localStorage.getItem('Nickname');
+                if(Nickname){
+                    window.location.href='./main.html';
+                }
+             }   
+        </script>
+    </body>
+</html>
